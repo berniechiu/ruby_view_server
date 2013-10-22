@@ -4,3 +4,21 @@
   <li><%= rank %>: <%= quality %></li>
 <% end %>
 </ul>
+<% if @request.query['first_name'] && !@request.query['first_name'].empty? %>
+  Hello there! <%= @request.query['first_name'] %>
+
+  Here's my intro: <%= @request.query['description'] %>
+
+  My gender: <%= @request.query['sex'] %>
+<% else %>
+  Enter your name~!
+  And describe yourself!
+<% end %>
+<form method='post' action="<%= @request.path %>">
+    First name: <input type="text" name="first_name" placeholder='first name'/><br />
+    Description: <br />
+    <textarea name="description" placeholdeer="describe yourslef..." ></textarea><br />
+    <input type="radio" name="sex" value="male">Male<br />
+    <input type="radio" name="sex" value="female">Female<br />
+    <input type="submit" value="Submit" />
+</form>
