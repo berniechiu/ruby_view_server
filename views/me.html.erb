@@ -1,1 +1,6 @@
-foo
+<h3>I'm so handsome</h3>
+<ul>
+<% { first: 'nice', second: 'caring', third: 'selfless' }.each do |rank, quality| %>
+  <li><%= rank %>: <%= quality %></li>
+<% end %>
+</ul>
